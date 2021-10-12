@@ -1,0 +1,27 @@
+<div *ngIf="boxOpeningError" class="col-12 boxOpeningError">
+  {{ boxOpeningError }}
+</div>
+<button class="back" routerLink="..">Back</button>
+<h2>Open Box</h2>
+<div *ngIf="boxDetails$ | async as box" class="col-12 boxdetail">
+  <div class="row">
+    <div class="col-7 boxImg">
+      <img src="{{ box.iconUrl }}" />
+    </div>
+    <div class="col-5">
+      <div><b>Box Name: </b>{{ box.name }}</div>
+      <div><b>Cost: </b>{{ box.cost }}</div>
+      <button class="col-12" (click)="openBox(box.id)">Open</button>
+
+      <ng-container *ngIf="openingBoxResult">
+        <div class="row">
+          <div *ngFor="let singleOpeningResult of openingBoxResult">
+            <ag-box-opening-item
+              [item]="singleOpeningResult.itemVariant"
+            ></ag-box-opening-item>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

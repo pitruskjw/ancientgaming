@@ -1,0 +1,40 @@
+img {
+  width: inherit;
+  height: 200px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.box {
+  padding: 10px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    button {
+      background-color: gray;
+      cursor: pointer;
+    }
+  }
+}
+
+.inner-box {
+  border-radius: 8px;
+  border: 1px solid transparent;
+
+  &:hover {
+    box-shadow: rgb(0 0 0 / 8%) 0px 2px 4px 0px, rgb(0 0 0 / 8%) 0px 0px 2px 1px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+  }
+}
+
+.caption {
+  margin: 5px;
+}

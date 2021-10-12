@@ -1,0 +1,24 @@
+<div class="navbar row">
+  <ul *ngIf="(currentUser$ | async)?.currentUser as currentUser; else loginBtn">
+    <li>
+      <a (click)="logout()">Logout</a>
+    </li>
+    <li>
+      <span>{{ currentUser?.name }}</span>
+    </li>
+    <li>
+      <span>
+        {{ currentUser?.wallets | sumWallets | currency: "":"" }}
+      </span>
+    </li>
+  </ul>
+  <ng-template #loginBtn>
+    <ul>
+      <li>
+        <a (click)="login()">Login</a>
+      </li>
+    </ul>
+  </ng-template>
+</div>
+
+<router-outlet></router-outlet>
